@@ -13,7 +13,7 @@ $(".time-block").each(function () {
     } else {
         $(this).addClass("future");    
     }
-    
+
     taskArray.forEach(element => {
         if (element.savedTime === blockHour) {
             $(this).children(".description").val(element.text);
@@ -23,12 +23,15 @@ $(".time-block").each(function () {
 
 $(".saveBtn").click(function () {
     var text = $(this).siblings(".description").val();
-    var savedTime = $(this).siblings(".hour").text().trim();
+    var savedTime = parseInt($(this).parent().attr('id').split('-')[1]);
+    console.log(savedTime);
     var TimeText = { text, savedTime };
     taskArray.push(TimeText);
         
     localStorage.setItem("tasks", JSON.stringify(taskArray));
 });
+
+
 
 
 
