@@ -13,6 +13,6 @@ To help the user organize their workday by mapping out what needs to be done eac
 ### Deployed link: https://ella9894.github.io/Work-Day-Scheduler/
 
 ![Scheduler screenshot](./assets/images/Screenshot.png)
-## Contact
+## Author
 Made by Gabriella Akpojiyovwi Inc. 
 
