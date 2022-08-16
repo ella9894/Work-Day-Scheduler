@@ -1,32 +1,36 @@
 var date = moment().format('dddd, MMMM Do');
-var currentDay = document.querySelector('#currentDay');
-var time = moment().format('hA');
-console.log(time);
+var time = moment().hour();
+console.log(typeof time, time);
 var taskArray = JSON.parse(localStorage.getItem(('tasks'))) || [];
-console.log(taskArray);
+
+
 
 $("#currentDay").html(date);
 
 $(".time-block").each(function () {
-    var blockHour = $(this).children(".hour").text().trim();
-    console.log(blockHour);
-    if (blockHour < time) {
-        $(this).removeClass("present future")
+    // var blockHour = parseInt($(this).children(".hour").text().trim());
+    var block = parseInt($(this).children("id").text().trim());
+    console.log(block);
+    // console.log(typeof blockHour, blockHour);
+        
+    if (block < time) {
+        // $(this).removeClass("present")
+        // $(this).removeClass("future")
         $(this).addClass("past");
-    } else if (blockHour === time) {
-        $(this).removeClass("past future");
+    } else if (block === time) {
+        // $(this).removeClass("past future");
         $(this).addClass("present");
     } else {
-        $(this).removeClass("past present");
+        // $(this).removeClass("past present");
         $(this).addClass("future");
     }
 
-    taskArray.forEach(element => {
-        if (element.savedTime === blockHour) {
-            $(this).children(".description").val(element.text);
-        }
+    // taskArray.forEach(element => {
+    //     if (element.savedTime === blockHour) {
+    //         $(this).children(".description").val(element.text);
+    //     }
         
-    });
+    // });
 });
 
 $(".saveBtn").click(function () {
